@@ -3,12 +3,15 @@
 (use-package rustic
   :after org)
 
-;; Chicken 
+;; Lisp
+(use-package paredit)
+
+;;; Chicken 
 (use-package chicken
   :after flymake
   :straight (:repo "https://code.call-cc.org/chicken-core"
 	     :files ("misc/chicken.el" "misc/flymake-chicken.el")))
-;;; Chicken LSP
+;;;; Chicken LSP
 (use-package lsp-scheme
   :config
   (add-hook 'scheme-mode-hook #'lsp-scheme)

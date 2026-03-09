@@ -29,6 +29,8 @@
     :init (global-corfu-mode))
 
 (use-package eglot
-    :hook ((python-mode python-ts-mode rust-mode rust-ts-mode scheme-mode scheme-ts-mode) . eglot-ensure)
-    :config
-    (add-to-list 'eglot-server-programs))
+  :hook
+  ((python-mode python-ts-mode rust-mode rust-ts-mode scheme-mode scheme-ts-mode clojure-mode clojure-ts-mode) . eglot-ensure)
+  :config
+  (with-eval-after-load 'eglot
+    (add-hook 'after-save-hook 'eglot-format)))
