@@ -1,1 +1,2 @@
-(use-package exec-path-from-shell)
+(use-package exec-path-from-shell
+  :init (exec-path-from-shell-initialize))
