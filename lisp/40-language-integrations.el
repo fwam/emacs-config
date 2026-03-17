@@ -20,3 +20,7 @@
 ;; Clojure
 (use-package clojure-mode)
 (use-package cider)
+
+;; Haskell
+(use-package haskell-mode
+  :defer t)

@@ -30,7 +30,17 @@
 
 (use-package eglot
   :hook
-  ((python-mode python-ts-mode rust-mode rust-ts-mode scheme-mode scheme-ts-mode clojure-mode clojure-ts-mode) . eglot-ensure)
+  ((python-mode python-ts-mode rust-mode rust-ts-mode scheme-mode scheme-ts-mode clojure-mode clojure-ts-mode haskell-mode haskell-ts-mode) . eglot-ensure)
   :config
   (with-eval-after-load 'eglot
     (add-hook 'after-save-hook 'eglot-format)))
+
+(use-package apheleia
+  :hook
+  ((python-mode python-ts-mode rust-mode rust-ts-mode scheme-mode scheme-ts-mode clojure-mode clojure-ts-mode haskell-mode haskell-ts-mode) . apheleia-mode)
+  :config
+  (setf (alist-get 'fourmolu apheleia-formatters)
+	'("fourmolu" "--stdin-input-file" "-"))
+
+  (setf (alist-get 'haskell-mode apheleia-mode-alist)
+      '(fourmolu)))
