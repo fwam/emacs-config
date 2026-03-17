@@ -8,7 +8,7 @@
 
 ;;; Chicken 
 (use-package chicken
-  :after flymake
+  :defer t
   :straight (:repo "https://code.call-cc.org/chicken-core"
 	     :files ("misc/chicken.el" "misc/flymake-chicken.el")))
 ;;;; Chicken LSP
