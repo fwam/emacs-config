@@ -7,7 +7,7 @@
   (setq doom-modeline-modal t)
   (setq doom-modeline-modal-icon t)
   (setq doom-modeline-modal-modern-icon t)
-  :hook (after-init . doom-modeline-mode))
+  :init (doom-modeline-mode 1))
 
 (use-package which-key
   :init (which-key-mode))

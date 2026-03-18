@@ -1,26 +1,13 @@
 (setq package-enable-at-startup nil)
 (setq inhibit-startup-screen t)
 
+(load-file (expand-file-name "elpaca-bootstrapper.el" user-emacs-directory))
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(elpaca elpaca-use-package
+  (elpaca-use-package-mode)
+  (setq elpaca-use-package-by-default t
+	use-package-always-ensure t))
 
-
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
 
 (unless (eq system-type "darwin") (menu-bar-mode -1))
 

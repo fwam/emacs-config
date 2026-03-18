@@ -1,3 +1,5 @@
+(use-package transient)
+
 (use-package vertico
     :bind ("C-x C-f" . fwam/find-file)
     :init (vertico-mode))
