@@ -1,3 +1,5 @@
+(use-package flymake)
+(use-package project)
 (use-package projectile
   :diminish projectile-mode
   :init

@@ -1,4 +1,5 @@
 (use-package transient)
+(use-package jsonrpc)
 
 (use-package vertico
     :bind ("C-x C-f" . fwam/find-file)
